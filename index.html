@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perceval J. Park</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 1em;
+            position: relative;
+            z-index: 1000;
+        }
+        header img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        .title-container {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .title-container h2 {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: black;
+            display: inline-block;
+            cursor: pointer;
+            transition: text-decoration 0.3s ease;
+        }
+        nav {
+            position: absolute;
+            top: 100%; /* Position nav below the title */
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1em 0;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        nav.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            margin: 0;
+            padding: 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #00274C;
+            font-weight: bold;
+            transition: transform 0.3s ease; /* Add transition here */
+        }
+        nav ul li a:hover {
+            transform: scale(1.1); /* Enlarge the nav item */
+        }
+        main {
+            transition: margin-top 0.3s ease;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            height: calc(100vh - 100px); /* Adjust based on header and footer height */
+        }
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-style: normal;
+        }
+        .about img {
+            height: 350px; /* Make the headshot image smaller */
+            border-radius: 50%; /* Optional: make the image round */
+            padding: 100px;
+        }
+        footer {
+            background-color: #00274C;
+            color: #FFCB05;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        /* Add underline on hover when navbar is visible */
+        .title-container:hover h2 {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="pnoback.png" alt="Perceval Park">
+        <div class="title-container">
+            <h2 id="title">Perceval J. Park</h2>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#playground">Playground</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="about">
+            <img src="headshot.png" alt="Perceval Park">
+            <div>
+                <h2>About</h2>
+                <p>Hi! I'm Percy, and I'm a Pre-Law student at the University of Michigan - Ann Arbor, studying Electrical and Computer Engineering.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Website of Perceval J. Park</p>
+    </footer>
+    <script>
+        const title = document.getElementById('title');
+        const navbar = document.getElementById('navbar');
+        const main = document.querySelector('main');
+
+        title.addEventListener('mouseenter', () => {
+            navbar.classList.add('show');
+            main.style.marginTop = `${navbar.offsetHeight}px`;
+        });
+
+        navbar.addEventListener('mouseleave', () => {
+            navbar.classList.remove('show');
+            main.style.marginTop = '0';
+        });
+    </script>
+</body>
+</html>

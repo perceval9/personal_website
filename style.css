@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1em;
+    position: relative;
+    z-index: 1000;
+}
+header img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+header img:hover {
+    transform: scale(1.1);
+}
+.title-container {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.title-container h2 {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: black;
+    display: inline-block;
+    cursor: pointer;
+    transition: text-decoration 0.3s ease;
+}
+nav {
+    position: absolute;
+    top: 100%; /* Position nav below the title */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em 0;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+nav.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+nav ul li {
+    margin: 0;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #00274C;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Add transition here */
+}
+nav ul li a:hover {
+    transform: scale(1.1); /* Enlarge the nav item */
+}
+main {
+    transition: margin-top 0.3s ease;
+}
+footer {
+    background-color: #00274C;
+    color: #FFCB05;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* Add underline on hover when navbar is visible */
+.title-container:hover h2 {
+    text-decoration: underline;
+}
